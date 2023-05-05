@@ -1,19 +1,24 @@
 package Semana01;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Exercicio {
     public static void main(String[] args) {
-        System.out.println("Digite o nome de um aluno ou escreva FIM para finalizar");
         Scanner scan = new Scanner(System.in);
 
-        String nome;
-        nome = scan.nextLine();
+        ArrayList<String> listaAluno = new ArrayList<>();
+        String nome = "";
 
         while (!nome.equalsIgnoreCase("FIM")) {
-            System.out.println("Aluno " + nome);
             System.out.println("Digite o nome de um aluno ou escreva FIM para finalizar");
             nome = scan.nextLine();
+
+            if (!nome.equalsIgnoreCase("FIM")) {
+                listaAluno.add(nome);
+                System.out.println("Aluno " + nome + " cadastrado com sucesso!");
+            }
         }
+        listaAluno.forEach(System.out::println);
     }
 }
